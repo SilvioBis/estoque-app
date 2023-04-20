@@ -1,7 +1,7 @@
 import { Cliente } from './../models/Cliente.model';
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import { Observable } from 'rxjs';
+import { catchError, EMPTY, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,10 @@ export class ClientesService {
   }
 
   getAll () : Observable<Cliente[]>{
-    return this.http.get<Cliente[]>(this.url)
+    return this.http.get<Cliente[]>(this.url).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro) )
+    );
   }
 
   getOne (id:number){
@@ -36,4 +39,10 @@ export class ClientesService {
   login (){}
 
   logout (){}
+
+  exibirErro(erro: any):Observable<any>{
+    alert('Num Rodaaa');
+    console.log(erro)
+    return EMPTY;
+  }
 }

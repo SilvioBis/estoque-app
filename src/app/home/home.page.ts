@@ -20,7 +20,7 @@ export class HomePage {
 
   buscarClientes(){
     this.ClientesService.getAll().subscribe(dados => {
-      this.listaClientes = dados  as Cliente[];
+      this.listaClientes = dados;
     });
   }
 }

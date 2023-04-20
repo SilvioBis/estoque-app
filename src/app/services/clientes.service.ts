@@ -1,6 +1,7 @@
 import { Cliente } from './../models/Cliente.model';
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class ClientesService {
     return this.http.post(this.url, cliente);
   }
 
-  getAll (){
-    return this.http.get(this.url)
+  getAll () : Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(this.url)
   }
 
   getOne (id:number){

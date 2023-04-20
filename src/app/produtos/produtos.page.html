@@ -7,7 +7,9 @@
 <ion-content [fullscreen]="true">
   <ion-item *ngFor="let produto of listaProduto">
     <ion-label>
-      {{produto.produto}}
+      {{produto.titulo}}
+      {{produto.preco}}
+      {{produto.descricao}}
     </ion-label>
   </ion-item>
 </ion-content>

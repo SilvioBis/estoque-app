@@ -1,6 +1,6 @@
 export class Produto{
   id?: number;
-  produto: string | undefined;
+  titulo: string | undefined;
   descricao: string | undefined;
   preco: string | undefined;
 }
